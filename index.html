@@ -12,7 +12,38 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="container">
+        <div class="calander-container">
+
+            <div class="calheader">
+                <div id="month-year"></div>
+                <div id="nav-buttons">
+                    <button id="back-btn">Back</button>
+                    <button id="next-btn">Next</button>
+                </div>
+                <div class="weekdays">
+                    <div class="weekday">Monday</div>
+                    <div class="weekday">Tuesday</div>
+                    <div class="weekday">Wednesday</div>
+                    <div class="weekday">Thursday</div>
+                    <div class="weekday">Friday</div>
+                    <div class="weekday">Saturday</div>
+                    <div class="weekday">Sunday</div>  
+                </div>
+            </div>
+            <div class="calander" id="run">
+            </div>
+        </div>
+    </div>
+    <div id="new-event">
+        <h2>New Event</h2>
+
+        <input id="eventTitleInput" type="text" placeholder="Event">
+
+        <button id="cancel-btn">Cancel</button>
+        <button id="save-btn">Save</button>
+    </div>
+    <div id="modal"></div>
 
     <script src="script.js"></script>
 </body>

@@ -1,3 +1,99 @@
+* {
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
 body {
-    background: rgb(136, 212, 183);
+    background: rgb(132, 141, 145);
+}
+
+
+
+.container {
+    width: 96%;
+    margin-inline: auto;
+}
+
+
+.calander-container {
+    .weekdays{
+        background: brown;
+        display: grid;
+        width: 50%;
+        grid-template-columns: repeat(7, 1fr);
+        div {
+            margin: .1em;
+            background: rgb(255, 255, 255);
+            text-align: center;
+            padding-top: 2em;
+            padding-bottom: 2em;
+        
+        
+        
+        }
+
+    }
+}
+
+.calander {
+    display: grid;
+    width: 50%;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    background: brown;
+    div {
+        margin: .1em;
+        background: rgb(255, 255, 255);
+        color: rgb(104, 104, 104);
+        font-weight: 700;
+        text-align: center;
+        padding-top: 2em;
+        padding-bottom: 2em;
+        border-radius: 1.4em;
+
+
+
+    }
+    div:hover {
+        background: rgb(153, 231, 255);
+        cursor: pointer;
+    }
+
+    .not-month-day:hover {
+        background: rgb(242, 200, 255);
+    }
+    
+    .not-month-day {
+        font-weight: normal;
+    }
+
+}
+
+.weekday-list {
+    display: grid;
+    text-align: center;
+    grid-template-columns: repeat(7, 14%);
+    grid-template-rows: 1fr;
+    font-weight: bold;
+    color: royalblue;
+}
+
+.monthday-list {
+    display: grid;
+    text-align: center;
+    grid-template-columns: repeat(7, 14%);
+    grid-template-rows: repeat(6, 1fr);
+}
+
+.monthday {
+    color: rgb(11, 57, 196);
+}
+
+.previos,
+.next {
+    color: rgb(101, 68, 116);
+}
+
+#new-event {
+    display: none;
 }
