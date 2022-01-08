@@ -1,32 +1,72 @@
+$base-color: #34614B;
+$cell-color: #36E08B;
+$text-color: rgb(253, 227, 179);
+
 * {
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
 }
 
 body {
-    background: rgb(132, 141, 145);
+    background: rgb(188, 207, 214);
 }
 
 
 
 .container {
+    display: grid;
+    grid-template-columns: 62% 38%;
+    gap: 2em;
     width: 96%;
     margin-inline: auto;
+    background: rgb(222, 242, 255);
 }
 
+nav,
+#create-close {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2em 0;
+    
+    #month-year,
+    button {
+        background: white;
+        padding: .6em;
+        border-radius: 1.2em;
+        border: 2px solid white;
+        }
+
+    button {
+        padding-inline: 3em;
+
+    }
+
+    button:hover {
+        background: $cell-color;
+        border: 2px solid $cell-color;
+        cursor: pointer;
+    }
+
+    button:active {
+        border: 2px solid $base-color;
+    }
+}
 
 .calander-container {
     .weekdays{
-        background: brown;
+        background: $base-color;
         display: grid;
-        width: 50%;
         grid-template-columns: repeat(7, 1fr);
         div {
             margin: .1em;
-            background: rgb(255, 255, 255);
+            background: $cell-color;
             text-align: center;
+            font-weight: bold;
             padding-top: 2em;
             padding-bottom: 2em;
+            border-radius: .8em;
+            color: $text-color;
         
         
         
@@ -37,25 +77,24 @@ body {
 
 .calander {
     display: grid;
-    width: 50%;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(6, 1fr);
-    background: brown;
+    background: $base-color;
     div {
         margin: .1em;
-        background: rgb(255, 255, 255);
-        color: rgb(104, 104, 104);
+        background: $cell-color;
+        color: $text-color;
         font-weight: 700;
         text-align: center;
         padding-top: 2em;
         padding-bottom: 2em;
-        border-radius: 1.4em;
+        border-radius: .8em;
 
 
 
     }
     div:hover {
-        background: rgb(153, 231, 255);
+        // background: rgb(153, 231, 255);
         cursor: pointer;
     }
 
@@ -65,6 +104,10 @@ body {
     
     .not-month-day {
         font-weight: normal;
+    }
+
+    .currentDay {
+        background: rgb(222, 110, 250);
     }
 
 }
@@ -94,6 +137,11 @@ body {
     color: rgb(101, 68, 116);
 }
 
-#new-event {
+#new-event,
+#deleteEventModal {
     display: none;
+
+    >* {
+        display: block;
+    }
 }

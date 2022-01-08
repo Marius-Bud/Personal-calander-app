@@ -5,55 +5,102 @@
 }
 
 body {
-  background: #848d91;
+  background: #bccfd6;
 }
 
 .container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 62% 38%;
+      grid-template-columns: 62% 38%;
+  gap: 2em;
   width: 96%;
   margin-inline: auto;
+  background: #def2ff;
+}
+
+nav,
+#create-close {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2em 0;
+}
+
+nav #month-year,
+nav button,
+#create-close #month-year,
+#create-close button {
+  background: white;
+  padding: .6em;
+  border-radius: 1.2em;
+  border: 2px solid white;
+}
+
+nav button,
+#create-close button {
+  padding-inline: 3em;
+}
+
+nav button:hover,
+#create-close button:hover {
+  background: #36E08B;
+  border: 2px solid #36E08B;
+  cursor: pointer;
+}
+
+nav button:active,
+#create-close button:active {
+  border: 2px solid #34614B;
 }
 
 .calander-container .weekdays {
-  background: brown;
+  background: #34614B;
   display: -ms-grid;
   display: grid;
-  width: 50%;
   -ms-grid-columns: (1fr)[7];
       grid-template-columns: repeat(7, 1fr);
 }
 
 .calander-container .weekdays div {
   margin: .1em;
-  background: white;
+  background: #36E08B;
   text-align: center;
+  font-weight: bold;
   padding-top: 2em;
   padding-bottom: 2em;
+  border-radius: .8em;
+  color: #fde3b3;
 }
 
 .calander {
   display: -ms-grid;
   display: grid;
-  width: 50%;
   -ms-grid-columns: (1fr)[7];
       grid-template-columns: repeat(7, 1fr);
   -ms-grid-rows: (1fr)[6];
       grid-template-rows: repeat(6, 1fr);
-  background: brown;
+  background: #34614B;
 }
 
 .calander div {
   margin: .1em;
-  background: white;
-  color: #686868;
+  background: #36E08B;
+  color: #fde3b3;
   font-weight: 700;
   text-align: center;
   padding-top: 2em;
   padding-bottom: 2em;
-  border-radius: 1.4em;
+  border-radius: .8em;
 }
 
 .calander div:hover {
-  background: #99e7ff;
   cursor: pointer;
 }
 
@@ -63,6 +110,10 @@ body {
 
 .calander .not-month-day {
   font-weight: normal;
+}
+
+.calander .currentDay {
+  background: #de6efa;
 }
 
 .weekday-list {
@@ -96,7 +147,13 @@ body {
   color: #654474;
 }
 
-#new-event {
+#new-event,
+#deleteEventModal {
   display: none;
+}
+
+#new-event > *,
+#deleteEventModal > * {
+  display: block;
 }
 /*# sourceMappingURL=style.css.map */

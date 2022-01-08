@@ -16,34 +16,66 @@
         <div class="calander-container">
 
             <div class="calheader">
-                <div id="month-year"></div>
-                <div id="nav-buttons">
-                    <button id="back-btn">Back</button>
-                    <button id="next-btn">Next</button>
-                </div>
+                <nav>
+
+                    <div id="month-year"></div>
+                    <div id="nav-buttons">
+                        <button id="back-btn">Back</button>
+                        <button id="next-btn">Next</button>
+                    </div>
+                </nav>
                 <div class="weekdays">
-                    <div class="weekday">Monday</div>
-                    <div class="weekday">Tuesday</div>
-                    <div class="weekday">Wednesday</div>
-                    <div class="weekday">Thursday</div>
-                    <div class="weekday">Friday</div>
-                    <div class="weekday">Saturday</div>
-                    <div class="weekday">Sunday</div>  
+                    <div class="weekday">Mon</div>
+                    <div class="weekday">Tue</div>
+                    <div class="weekday">Wed</div>
+                    <div class="weekday">Thu</div>
+                    <div class="weekday">Fri</div>
+                    <div class="weekday">Sat</div>
+                    <div class="weekday">Sun</div>  
                 </div>
             </div>
             <div class="calander" id="run">
             </div>
         </div>
+        <div id="side">
+            <div id="create-close">
+                <button id="create-new-event">Create New Event</button>
+            </div>
+            <div id="modal">
+                <div id="new-event">
+                    <h2>New Event</h2>
+                    <label>Event title:</label>
+                    <input id="eventTitleInput" type="text" placeholder="Event">
+                    <label>Event Date:</label>
+                    <input type="date" name="" id="eventDateInput">
+                    <label>Start time:</label>
+                    <input type="time" name="" id="eventStartTimeInput">
+                    <label>End time:</label>
+                    <input type="time" name="" id="eventEndTimeInput">
+                    <label>Event Type:</label>
+                    <select name="" id="eventTypeInput">
+                        <option value="">--Select--</option>
+                        <option value="Meeting">Meeting</option>
+                        <option value="Call">Call</option>
+                        <option value="Out of office">Out of office</option>
+                    </select>
+                    <label>Description:</label>
+                    <textarea name="" id="eventDescriptionInput" cols="30" rows="3"></textarea>
+                    <button id="cancel-btn">Cancel</button>
+                    <button id="save-btn">Save</button>
+                    
+                </div>
+                <div id="deleteEventModal">
+                    <h2>Event</h2>
+                    
+                    <p id="eventText"></p>
+                    
+                    <button id="delete-btn">Delete</button>
+                    <button id="close-btn">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="new-event">
-        <h2>New Event</h2>
-
-        <input id="eventTitleInput" type="text" placeholder="Event">
-
-        <button id="cancel-btn">Cancel</button>
-        <button id="save-btn">Save</button>
-    </div>
-    <div id="modal"></div>
 
     <script src="script.js"></script>
 </body>
