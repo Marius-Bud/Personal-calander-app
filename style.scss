@@ -1,6 +1,6 @@
-$base-color: #cfcfcf;
-$cell-color: #2c40f1;
-$hover-color: #4e5ff0;
+$base-color: #bbf7c5;
+$cell-color: #29bb30;
+$hover-color: #8da145;
 $text-color: rgb(253, 227, 179);
 $background-color: rgb(236, 236, 236);
 // $cell-pad:
@@ -26,11 +26,14 @@ body {
 }
 
 nav,
-#create-close {
+#create-close,
+#newEventButtons,
+#deleteEventButtons,
+#deleteMessage {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2em 0;
+    padding: 1em 0;
     
     #month-year,
     button {
@@ -60,23 +63,27 @@ nav,
 }
 
 .calander-container {
+
+    min-width: 45vw;
     .weekdays{
         background: $base-color;
         display: grid;
         grid-template-columns: repeat(7, 1fr);
+        gap: .2em;
         div {
-            margin: .1em;
             background: $cell-color;
             text-align: center;
             font-weight: bold;
             padding-top: 2em;
             padding-bottom: 2em;
-            border-radius: .8em;
+            border-radius: .2em;
+            margin-bottom: .2em;
             color: $text-color;
-        
+            // width: 100px;
         
         
         }
+
 
     }
 }
@@ -86,18 +93,49 @@ nav,
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(6, 1fr);
     background: $base-color;
-    div {
-        margin: .1em;
+    gap: .2em;
+
+    >div {
+        background: $cell-color;
+        border-radius: .3em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        min-height: 12vh;
+        max-height: 12vh;
+    }
+
+    
+    div>div {
+        // margin: .4em;
+        margin-bottom: .4em;
+        margin-top: .4em;
         background: $cell-color;
         color: $text-color;
         font-weight: 700;
-        text-align: center;
-        padding-top: 2em;
-        padding-bottom: 2em;
-        border-radius: .8em;
+        text-align: left;
+        // padding-top: 2em;
+        // padding-bottom: 2em;
+        // border: 2px solid red;
+        padding: .2em;
+        // border-radius: .2em;
+        
+        
+    }
+    
+    div.event {
+        margin-top: 0;
+        font-weight: bold;
+    }
 
+    div>div:first-child {
+        margin-bottom: 0;
+        background: none;
+    }
 
-
+    .month-day {
+        text-align: left;
     }
     div:hover {
         // background: rgb(153, 231, 255);
@@ -110,9 +148,11 @@ nav,
     
     .not-month-day {
         font-weight: normal;
+        background: $base-color;
     }
 
-    .currentDay {
+    .currentDay,
+    .currentDay>div:first-child {
         background: rgb(222, 110, 250);
     }
 
@@ -137,7 +177,7 @@ nav,
 
 .weekday-list {
     display: grid;
-    text-align: center;
+    text-align: left;
     grid-template-columns: repeat(7, 14%);
     grid-template-rows: 1fr;
     font-weight: bold;
@@ -162,7 +202,21 @@ nav,
 
 #new-event,
 #deleteEventModal {
+    background: $base-color;
+
+    label {
+        padding: .3em 0;
+        margin-top: .3em;
+        font-weight: bold;
+    }
+
+    span {
+        font-weight: bold;
+    }
+    padding: 1em;
     display: none;
+    width: fit-content;
+    border-radius: .4em;
 
     >* {
         display: block;
@@ -172,10 +226,66 @@ nav,
 #new-event {
     .errorbox {
         color: red;
+        padding: .2em 0;
+    }
+
+    input,
+    textarea,
+    select {
+        border: 0;
+        background: none;
+        border-bottom: 3px solid #444;
+        width: 100%;
     }
 
 }
 .required::after {
     content: '*';
     color: red;
+}
+
+#DeletePopUpBackground {
+    display: none;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: rgba(0,0,0,0.8);
+  }
+
+#deletedEventTitle {
+    font-weight: bold;
+}
+
+#deleteMessage {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background: $background-color;
+    padding: 3em;
+    border-radius: .4em;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    display: block;
+
+    >* {
+        display: block;
+    }
+}
+
+button#delete-btn:hover {
+    background: rgb(235, 57, 92);
+    border: 2px solid rgb(235, 57, 92);
+    color: white;
+}
+
+button#delete-btn:active {
+    background: rgb(204, 49, 80);
+    border: 2px solid rgb(204, 49, 80);
+}
+
+button#create-new-event {
+    width: 58%;
 }

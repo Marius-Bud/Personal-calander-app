@@ -41,8 +41,8 @@
             <div id="create-close">
                 <button id="create-new-event">Create New Event</button>
             </div>
-            <div id="modal">
-                <div id="new-event">
+            <div id="modal" style="display: none;">
+                <div id="new-event" style="display: none;">
                     <h2>New Event</h2>
                     <label class="required">Event title</label>
                     <input id="eventTitleInput" type="text" placeholder="Event">
@@ -61,11 +61,14 @@
                     </select>
                     <label>Description</label>
                     <textarea name="" id="eventDescriptionInput" cols="30" rows="3" style="resize: none;"></textarea>
-                    <button id="cancel-btn">Cancel</button>
-                    <button id="save-btn">Save</button>
+                    <div id="newEventButtons">
+
+                        <button id="cancel-btn">Cancel</button>
+                        <button id="save-btn">Save</button>
+                    </div>
                     
                 </div>
-                <div id="deleteEventModal">
+                <div id="deleteEventModal" style="display: none;">
                     <h2>Event</h2>
                     
                     <p id="eventText"></p>
@@ -74,10 +77,20 @@
                     <p id="eventEndTime"></p>
                     <p id="eventType"></p>
                     <p id="eventDescription"></p>
-                    <button id="delete-btn">Delete</button>
-                    <button id="close-btn">Close</button>
+                    <div id="deleteEventButtons">
+
+                        <button id="delete-btn">Delete</button>
+                        <button id="close-btn">Close</button>
+                    </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div id="DeletePopUpBackground">
+        <div id="deleteMessage" >
+            <div id="deletedEventTitle"></div>
+            <p>Has been deleted</p>
+            <button id="ok-btn">okay</button>
         </div>
     </div>
 

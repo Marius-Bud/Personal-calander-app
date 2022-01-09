@@ -20,7 +20,10 @@ body {
 }
 
 nav,
-#create-close {
+#create-close,
+#newEventButtons,
+#deleteEventButtons,
+#deleteMessage {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -30,13 +33,19 @@ nav,
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 2em 0;
+  padding: 1em 0;
 }
 
 nav #month-year,
 nav button,
 #create-close #month-year,
-#create-close button {
+#create-close button,
+#newEventButtons #month-year,
+#newEventButtons button,
+#deleteEventButtons #month-year,
+#deleteEventButtons button,
+#deleteMessage #month-year,
+#deleteMessage button {
   background: white;
   padding: .6em;
   border-radius: 1.2em;
@@ -46,39 +55,53 @@ nav button,
 }
 
 nav button,
-#create-close button {
+#create-close button,
+#newEventButtons button,
+#deleteEventButtons button,
+#deleteMessage button {
   padding-inline: 3em;
 }
 
 nav button:hover,
-#create-close button:hover {
-  background: #2c40f1;
+#create-close button:hover,
+#newEventButtons button:hover,
+#deleteEventButtons button:hover,
+#deleteMessage button:hover {
+  background: #29bb30;
   color: #fde3b3;
-  border: 2px solid #2c40f1;
+  border: 2px solid #29bb30;
   cursor: pointer;
 }
 
 nav button:active,
-#create-close button:active {
-  border: 2px solid #cfcfcf;
+#create-close button:active,
+#newEventButtons button:active,
+#deleteEventButtons button:active,
+#deleteMessage button:active {
+  border: 2px solid #bbf7c5;
+}
+
+.calander-container {
+  min-width: 45vw;
 }
 
 .calander-container .weekdays {
-  background: #cfcfcf;
+  background: #bbf7c5;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[7];
       grid-template-columns: repeat(7, 1fr);
+  gap: .2em;
 }
 
 .calander-container .weekdays div {
-  margin: .1em;
-  background: #2c40f1;
+  background: #29bb30;
   text-align: center;
   font-weight: bold;
   padding-top: 2em;
   padding-bottom: 2em;
-  border-radius: .8em;
+  border-radius: .2em;
+  margin-bottom: .2em;
   color: #fde3b3;
 }
 
@@ -89,18 +112,51 @@ nav button:active,
       grid-template-columns: repeat(7, 1fr);
   -ms-grid-rows: (1fr)[6];
       grid-template-rows: repeat(6, 1fr);
-  background: #cfcfcf;
+  background: #bbf7c5;
+  gap: .2em;
 }
 
-.calander div {
-  margin: .1em;
-  background: #2c40f1;
+.calander > div {
+  background: #29bb30;
+  border-radius: .3em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  min-height: 12vh;
+  max-height: 12vh;
+}
+
+.calander div > div {
+  margin-bottom: .4em;
+  margin-top: .4em;
+  background: #29bb30;
   color: #fde3b3;
   font-weight: 700;
-  text-align: center;
-  padding-top: 2em;
-  padding-bottom: 2em;
-  border-radius: .8em;
+  text-align: left;
+  padding: .2em;
+}
+
+.calander div.event {
+  margin-top: 0;
+  font-weight: bold;
+}
+
+.calander div > div:first-child {
+  margin-bottom: 0;
+  background: none;
+}
+
+.calander .month-day {
+  text-align: left;
 }
 
 .calander div:hover {
@@ -113,14 +169,16 @@ nav button:active,
 
 .calander .not-month-day {
   font-weight: normal;
+  background: #bbf7c5;
 }
 
-.calander .currentDay {
+.calander .currentDay,
+.calander .currentDay > div:first-child {
   background: #de6efa;
 }
 
 .calander .month-day:hover {
-  background: #4e5ff0;
+  background: #8da145;
 }
 
 .calander .orange {
@@ -138,7 +196,7 @@ nav button:active,
 .weekday-list {
   display: -ms-grid;
   display: grid;
-  text-align: center;
+  text-align: left;
   -ms-grid-columns: (14%)[7];
       grid-template-columns: repeat(7, 14%);
   -ms-grid-rows: 1fr;
@@ -168,7 +226,25 @@ nav button:active,
 
 #new-event,
 #deleteEventModal {
+  background: #bbf7c5;
+  padding: 1em;
   display: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: .4em;
+}
+
+#new-event label,
+#deleteEventModal label {
+  padding: .3em 0;
+  margin-top: .3em;
+  font-weight: bold;
+}
+
+#new-event span,
+#deleteEventModal span {
+  font-weight: bold;
 }
 
 #new-event > *,
@@ -178,10 +254,67 @@ nav button:active,
 
 #new-event .errorbox {
   color: red;
+  padding: .2em 0;
+}
+
+#new-event input,
+#new-event textarea,
+#new-event select {
+  border: 0;
+  background: none;
+  border-bottom: 3px solid #444;
+  width: 100%;
 }
 
 .required::after {
   content: '*';
   color: red;
+}
+
+#DeletePopUpBackground {
+  display: none;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+#deletedEventTitle {
+  font-weight: bold;
+}
+
+#deleteMessage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: #ececec;
+  padding: 3em;
+  border-radius: .4em;
+  text-align: center;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: block;
+}
+
+#deleteMessage > * {
+  display: block;
+}
+
+button#delete-btn:hover {
+  background: #eb395c;
+  border: 2px solid #eb395c;
+  color: white;
+}
+
+button#delete-btn:active {
+  background: #cc3150;
+  border: 2px solid #cc3150;
+}
+
+button#create-new-event {
+  width: 58%;
 }
 /*# sourceMappingURL=style.css.map */
