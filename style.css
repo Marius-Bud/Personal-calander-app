@@ -5,7 +5,7 @@
 }
 
 body {
-  background: #ececec;
+  background: #CDE8FA;
 }
 
 .container {
@@ -16,7 +16,7 @@ body {
   gap: 2em;
   width: 96%;
   margin-inline: auto;
-  background: #ececec;
+  background: #CDE8FA;
 }
 
 nav,
@@ -67,9 +67,9 @@ nav button:hover,
 #newEventButtons button:hover,
 #deleteEventButtons button:hover,
 #deleteMessage button:hover {
-  background: #29bb30;
+  background: #4d53a3;
   color: #fde3b3;
-  border: 2px solid #29bb30;
+  border: 2px solid #4d53a3;
   cursor: pointer;
 }
 
@@ -78,7 +78,7 @@ nav button:active,
 #newEventButtons button:active,
 #deleteEventButtons button:active,
 #deleteMessage button:active {
-  border: 2px solid #bbf7c5;
+  border: 2px solid #bec2fa;
 }
 
 .calander-container {
@@ -86,7 +86,7 @@ nav button:active,
 }
 
 .calander-container .weekdays {
-  background: #bbf7c5;
+  background: #bec2fa;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[7];
@@ -95,7 +95,7 @@ nav button:active,
 }
 
 .calander-container .weekdays div {
-  background: #29bb30;
+  background: #4d53a3;
   text-align: center;
   font-weight: bold;
   padding-top: 2em;
@@ -112,12 +112,12 @@ nav button:active,
       grid-template-columns: repeat(7, 1fr);
   -ms-grid-rows: (1fr)[6];
       grid-template-rows: repeat(6, 1fr);
-  background: #bbf7c5;
+  background: #bec2fa;
   gap: .2em;
 }
 
 .calander > div {
-  background: #29bb30;
+  background: #4d53a3;
   border-radius: .3em;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -138,7 +138,7 @@ nav button:active,
 .calander div > div {
   margin-bottom: .4em;
   margin-top: .4em;
-  background: #29bb30;
+  background: #4d53a3;
   color: #fde3b3;
   font-weight: 700;
   text-align: left;
@@ -164,33 +164,33 @@ nav button:active,
 }
 
 .calander .not-month-day:hover {
-  background: #f2c8ff;
+  background: #dddddd;
 }
 
 .calander .not-month-day {
   font-weight: normal;
-  background: #bbf7c5;
+  background: #bec2fa;
 }
 
 .calander .currentDay,
 .calander .currentDay > div:first-child {
-  background: #de6efa;
+  background: #9b01c2;
 }
 
 .calander .month-day:hover {
-  background: #8da145;
+  background: #6d689e;
 }
 
 .calander .orange {
-  background: orange;
+  background: #2ED13D;
 }
 
 .calander .greenish {
-  background: green;
+  background: #D13D2E;
 }
 
 .calander .magentaish {
-  background: magenta;
+  background: #d32cd3;
 }
 
 .weekday-list {
@@ -226,7 +226,7 @@ nav button:active,
 
 #new-event,
 #deleteEventModal {
-  background: #bbf7c5;
+  background: #bec2fa;
   padding: 1em;
   display: none;
   width: -webkit-fit-content;
@@ -290,7 +290,7 @@ nav button:active,
   position: absolute;
   left: 50%;
   top: 50%;
-  background: #ececec;
+  background: #CDE8FA;
   padding: 3em;
   border-radius: .4em;
   text-align: center;

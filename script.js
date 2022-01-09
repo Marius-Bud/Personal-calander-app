@@ -21,7 +21,6 @@ const deleteAlert = document.getElementById('DeletePopUpBackground');
 
 const requiredFields = [eventTitleInput, eventDateInput, eventStartTimeInput, eventEndTimeInput, eventTypeInput];
 
-let errorBox = "";
 let errorswitch = [];
 
 let convertedDate = '';
@@ -89,77 +88,77 @@ function generateCalender() {
     const previosNumOfdays = new Date(year, month-1, 0).getDate();
     
     const dateStr = startday.toLocaleDateString('en-GB', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'numeric',
-        day: 'numeric'});
-        const outOffMonthDays = weekdays.indexOf(dateStr.split(', ')[0]);
-        
-        const endSquares = (outOffMonthDays + numOfDays) % 7;
-        // NAV month and year display
-        document.getElementById("month-year").innerText = `${datetime.toLocaleDateString('en-GB', {month: "long"})} ${year}`;
-        
-        
-        cale.innerHTML = '';
-        // Generates every day cell
-        for(let i = 1; i <= 42; i++) {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric'});
+    const outOffMonthDays = weekdays.indexOf(dateStr.split(', ')[0]);
+    
+    const endSquares = (outOffMonthDays + numOfDays) % 7;
+    // NAV month and year display
+    document.getElementById("month-year").innerText = `${datetime.toLocaleDateString('en-GB', {month: "long"})} ${year}`;
+    
+    
+    cale.innerHTML = '';
+    // Generates every day cell
+    for(let i = 1; i <= 42; i++) {
             
-            const dayNumb = i - outOffMonthDays;
-            // Inserts the corrent months daySquares
-            if (i > outOffMonthDays && i < numOfDays + outOffMonthDays +1) {
-                cale.insertAdjacentHTML('beforeend', `<div class="month-day" id="${dayNumb}-day"><div>${dayNumb}</div></,div>`)
-                
-                const dayString = `${i - outOffMonthDays}/${month + 1}/${year}`
-                const daySquare = document.getElementById(`${dayNumb}-day`);
-                const eventForDay = events.find(e => e.date === dayString);
-                
-                // Highlights the current day
-                if (i - outOffMonthDays === day && monthOn === 0) {
-                    daySquare.className = "currentDay";
+        const dayNumb = i - outOffMonthDays;
+        // Inserts the corrent months daySquares
+        if (i > outOffMonthDays && i < numOfDays + outOffMonthDays +1) {
+            cale.insertAdjacentHTML('beforeend', `<div class="month-day" id="${dayNumb}-day"><div>${dayNumb}</div></,div>`)
+            
+            const dayString = `${i - outOffMonthDays}/${month + 1}/${year}`
+            const daySquare = document.getElementById(`${dayNumb}-day`);
+            const eventForDay = events.find(e => e.date === dayString);
+            
+            // Highlights the current day
+            if (i - outOffMonthDays === day && monthOn === 0) {
+                daySquare.className = "currentDay";
+            }
+            // Ads div for day square with event 
+            const eventDiv = Div = document.createElement('div');
+            if (eventForDay) {
+                switch (eventForDay.type) {
+                    case "Meeting":
+                        eventDiv.classList.add('orange');
+                        break;
+                    case "Call":
+                        eventDiv.classList.add('greenish');
+                        break;
+                    case "Out of office":
+                        eventDiv.classList.add('magentaish');
+                        break;
                 }
-                // Ads div for day square with event 
-                const eventDiv = Div = document.createElement('div');
-                if (eventForDay) {
-                    switch (eventForDay.type) {
-                        case "Meeting":
-                            eventDiv.classList.add('orange');
-                            break;
-                            case "Call":
-                                eventDiv.classList.add('greenish');
-                                break;
-                                case "Out of office":
-                                    eventDiv.classList.add('magentaish');
-                                    break;
-                                }
-                                eventDiv.classList.add('event');
-                                
-                                if (eventForDay.title.length > 18) {
-                                    const shortenedTitle = (eventForDay.title).slice(0, 18);
-                                    eventDiv.innerText = `${shortenedTitle}...`;
-                                } else {
-                                    eventDiv.innerText = eventForDay.title;
-                                }
-                                daySquare.appendChild(eventDiv);
-                            }
-                            
-                            daySquare.addEventListener('click',() => {
-                                if (document.getElementById('new-event').style.display === 'block') {
-                                    document.getElementById('new-event').style.display = 'none';
-                                }
-                openModal(dayString);
-                reconvertDate();
-                });
-            }   
-            // Inserts the previos months squares
-            else if (i <= outOffMonthDays) {
-                cale.insertAdjacentHTML('beforeend', `<div class="not-month-day previos-month"></div>`);
-            }
-            // Fills the days after the month day ends with the next months days
-            else if (i > numOfDays) {
-                cale.insertAdjacentHTML('beforeend', `<div class="not-month-day next-month"></div>`);
-            }
+                eventDiv.classList.add('event');
+                
+                if (eventForDay.title.length > 18) {
+                    const shortenedTitle = (eventForDay.title).slice(0, 18);
+                    eventDiv.innerText = `${shortenedTitle}...`;
+                } else {
+                        eventDiv.innerText = eventForDay.title;
+                    }
+                    daySquare.appendChild(eventDiv);
+                }
+                
+                daySquare.addEventListener('click',() => {
+                        if (document.getElementById('new-event').style.display === 'block') {
+                            document.getElementById('new-event').style.display = 'none';
+                        }
+            openModal(dayString);
+            reconvertDate();
+            });
+        }   
+        // Inserts the previos months squares
+        else if (i <= outOffMonthDays) {
+            cale.insertAdjacentHTML('beforeend', `<div class="not-month-day previos-month"></div>`);
+        }
+        // Fills the days after the month day ends with the next months days
+        else if (i > numOfDays) {
+            cale.insertAdjacentHTML('beforeend', `<div class="not-month-day next-month"></div>`);
         }
     }
+}
     
     // Closes side windows and resets all the trigger values to default 
     function closeModal() {
