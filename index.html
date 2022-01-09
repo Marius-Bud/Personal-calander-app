@@ -44,23 +44,23 @@
             <div id="modal">
                 <div id="new-event">
                     <h2>New Event</h2>
-                    <label>Event title:</label>
+                    <label class="required">Event title</label>
                     <input id="eventTitleInput" type="text" placeholder="Event">
-                    <label>Event Date:</label>
+                    <label class="required">Event Date</label>
                     <input type="date" name="" id="eventDateInput">
-                    <label>Start time:</label>
+                    <label class="required">Start time</label>
                     <input type="time" name="" id="eventStartTimeInput">
-                    <label>End time:</label>
+                    <label class="required">End time</label>
                     <input type="time" name="" id="eventEndTimeInput">
-                    <label>Event Type:</label>
+                    <label class="required">Event Type</label>
                     <select name="" id="eventTypeInput">
                         <option value="">--Select--</option>
                         <option value="Meeting">Meeting</option>
                         <option value="Call">Call</option>
                         <option value="Out of office">Out of office</option>
                     </select>
-                    <label>Description:</label>
-                    <textarea name="" id="eventDescriptionInput" cols="30" rows="3"></textarea>
+                    <label>Description</label>
+                    <textarea name="" id="eventDescriptionInput" cols="30" rows="3" style="resize: none;"></textarea>
                     <button id="cancel-btn">Cancel</button>
                     <button id="save-btn">Save</button>
                     
@@ -69,7 +69,11 @@
                     <h2>Event</h2>
                     
                     <p id="eventText"></p>
-                    
+                    <p id="eventDate"></p>
+                    <p id="eventStartTime"></p>
+                    <p id="eventEndTime"></p>
+                    <p id="eventType"></p>
+                    <p id="eventDescription"></p>
                     <button id="delete-btn">Delete</button>
                     <button id="close-btn">Close</button>
                 </div>

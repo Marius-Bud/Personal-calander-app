@@ -1,6 +1,9 @@
-$base-color: #34614B;
-$cell-color: #36E08B;
+$base-color: #cfcfcf;
+$cell-color: #2c40f1;
+$hover-color: #4e5ff0;
 $text-color: rgb(253, 227, 179);
+$background-color: rgb(236, 236, 236);
+// $cell-pad:
 
 * {
     box-sizing: border-box;
@@ -8,7 +11,7 @@ $text-color: rgb(253, 227, 179);
 }
 
 body {
-    background: rgb(188, 207, 214);
+    background: $background-color;
 }
 
 
@@ -19,7 +22,7 @@ body {
     gap: 2em;
     width: 96%;
     margin-inline: auto;
-    background: rgb(222, 242, 255);
+    background: $background-color;
 }
 
 nav,
@@ -35,6 +38,8 @@ nav,
         padding: .6em;
         border-radius: 1.2em;
         border: 2px solid white;
+        font-weight: bold;
+        color: rgb(43, 43, 43);
         }
 
     button {
@@ -44,6 +49,7 @@ nav,
 
     button:hover {
         background: $cell-color;
+        color: $text-color;
         border: 2px solid $cell-color;
         cursor: pointer;
     }
@@ -110,6 +116,23 @@ nav,
         background: rgb(222, 110, 250);
     }
 
+    .month-day:hover {
+        background: $hover-color;
+    }
+
+
+    .orange {
+        background: orange;
+    }
+
+    .greenish {
+        background: green;
+    }
+
+    .magentaish {
+        background: magenta;
+    }
+
 }
 
 .weekday-list {
@@ -144,4 +167,15 @@ nav,
     >* {
         display: block;
     }
+}
+
+#new-event {
+    .errorbox {
+        color: red;
+    }
+
+}
+.required::after {
+    content: '*';
+    color: red;
 }

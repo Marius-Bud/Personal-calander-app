@@ -5,7 +5,7 @@
 }
 
 body {
-  background: #bccfd6;
+  background: #ececec;
 }
 
 .container {
@@ -16,7 +16,7 @@ body {
   gap: 2em;
   width: 96%;
   margin-inline: auto;
-  background: #def2ff;
+  background: #ececec;
 }
 
 nav,
@@ -41,6 +41,8 @@ nav button,
   padding: .6em;
   border-radius: 1.2em;
   border: 2px solid white;
+  font-weight: bold;
+  color: #2b2b2b;
 }
 
 nav button,
@@ -50,18 +52,19 @@ nav button,
 
 nav button:hover,
 #create-close button:hover {
-  background: #36E08B;
-  border: 2px solid #36E08B;
+  background: #2c40f1;
+  color: #fde3b3;
+  border: 2px solid #2c40f1;
   cursor: pointer;
 }
 
 nav button:active,
 #create-close button:active {
-  border: 2px solid #34614B;
+  border: 2px solid #cfcfcf;
 }
 
 .calander-container .weekdays {
-  background: #34614B;
+  background: #cfcfcf;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[7];
@@ -70,7 +73,7 @@ nav button:active,
 
 .calander-container .weekdays div {
   margin: .1em;
-  background: #36E08B;
+  background: #2c40f1;
   text-align: center;
   font-weight: bold;
   padding-top: 2em;
@@ -86,12 +89,12 @@ nav button:active,
       grid-template-columns: repeat(7, 1fr);
   -ms-grid-rows: (1fr)[6];
       grid-template-rows: repeat(6, 1fr);
-  background: #34614B;
+  background: #cfcfcf;
 }
 
 .calander div {
   margin: .1em;
-  background: #36E08B;
+  background: #2c40f1;
   color: #fde3b3;
   font-weight: 700;
   text-align: center;
@@ -114,6 +117,22 @@ nav button:active,
 
 .calander .currentDay {
   background: #de6efa;
+}
+
+.calander .month-day:hover {
+  background: #4e5ff0;
+}
+
+.calander .orange {
+  background: orange;
+}
+
+.calander .greenish {
+  background: green;
+}
+
+.calander .magentaish {
+  background: magenta;
 }
 
 .weekday-list {
@@ -155,5 +174,14 @@ nav button:active,
 #new-event > *,
 #deleteEventModal > * {
   display: block;
+}
+
+#new-event .errorbox {
+  color: red;
+}
+
+.required::after {
+  content: '*';
+  color: red;
 }
 /*# sourceMappingURL=style.css.map */
